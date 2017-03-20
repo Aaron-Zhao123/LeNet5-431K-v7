@@ -257,7 +257,7 @@ def plot_weights(weights,pruning_info):
 
 def ClipIfNotNone(grad):
     if grad is None:
-        return grad
+        return 0
     return tf.clip_by_value(grad, -1, 1)
 
 '''
@@ -344,7 +344,7 @@ def main(argv = None):
 
         # Define loss and optimizer
         trainer = tf.train.AdamOptimizer(learning_rate=learning_rate)
-    	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels = pred, logits = y))
+    	cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels = y, logits = pred))
 
         correct_prediction = tf.equal(tf.argmax(pred,1), tf.argmax(y,1))
         accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
@@ -387,8 +387,8 @@ def main(argv = None):
 
             if (TRAIN == True):
                 print('Training starts ...')
-                # for epoch in range(training_epochs):
-                for epoch in range(3):
+                for epoch in range(training_epochs):
+                # for epoch in range(3):
                     avg_cost = 0.
                     total_batch = int(mnist.train.num_examples/batch_size)
                     # Loop over all batches
