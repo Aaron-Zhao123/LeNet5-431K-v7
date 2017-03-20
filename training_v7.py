@@ -487,7 +487,7 @@ def mask_info(weights):
     (non_zeros, total) = calculate_non_zero_weights(weights['cov2'])
     print('cov2 has prunned {} percent of its weights'.format((total-non_zeros)*100/total))
     (non_zeros, total) = calculate_non_zero_weights(weights['fc1'])
-    print('fc1 has prunned {} percent of its weights'.format((total-non_zeros)*100/total))
+    print('fc1 has prunned {} percent of its weights'.format((total-non_zeros)*100/float(total)))
     (non_zeros, total) = calculate_non_zero_weights(weights['fc2'])
     print('fc2 has prunned {} percent of its weights'.format((total-non_zeros)*100/total))
 
