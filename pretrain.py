@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 import input_data
 import pickle
-import scipy.io as sio
+# import scipy.io as sio
 np.set_printoptions(precision=128)
 # open_file_name = 'weights_log/weights10.pkl'
 # open_file_name = 'weights_log/weights_quan'+'.pkl'
@@ -78,8 +78,8 @@ def dump_weights():
     keys = ['cov1', 'cov2', 'fc1', 'fc2']
     print("try dumping weights")
     file_dir = './plots/'
-    sio.savemat(file_dir+'weights'+'.mat',
-                {'weights':weights})
+    # sio.savemat(file_dir+'weights'+'.mat',
+    #             {'weights':weights})
 
 
 
