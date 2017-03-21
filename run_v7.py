@@ -57,7 +57,7 @@ while (count < 10):
     if (acc < 0.9936):
         retrain += 1
         # lr = lr / float(2)
-        if (retrain > 2):
+        if (retrain > 2 or pfc[1] > 90):
             print("lowest precision")
             break
     else:
