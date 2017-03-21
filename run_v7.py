@@ -11,15 +11,17 @@ def compute_file_name(pcov, pfc):
 
 acc_list = []
 count = 0
-pcov = [0., 0.]
-pfc = [99., 0.]
+pcov = [10., 10.]
+pfc = [99., 10.]
 
 retrain = 0
 lr = 1e-4
 f_name = compute_file_name(pcov,pfc)
 
 while (count < 10):
-    pfc[0] = pfc[0] + 1.
+    pfc[1] = pfc[1] + 10.
+    pcov[0] = pcov[0] + 10.
+    pcov[1] = pcov[1] + 10.
     if (retrain == 0):
         lr = 1e-4
     # prune
@@ -54,8 +56,8 @@ while (count < 10):
 
     if (acc < 0.9936):
         retrain += 1
-        lr = lr / float(2)
-        if (retrain > 2 or pfc[0] > 99):
+        # lr = lr / float(2)
+        if (retrain > 2):
             print("lowest precision")
             break
     else:
