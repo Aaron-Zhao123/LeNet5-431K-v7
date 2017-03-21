@@ -53,7 +53,7 @@ while (count < 10):
     ('-TRAIN', True),
     ('-parent_dir','./')
     ]
-    acc,iter_cnt = training_v7.main(param)
+    acc,iter_cnt = training_v7_biases.main(param)
 
     if (acc < 0.9936):
         retrain += 1
