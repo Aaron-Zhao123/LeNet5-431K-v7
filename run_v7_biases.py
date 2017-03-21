@@ -38,7 +38,7 @@ while (count < 10):
     ('-parent_dir','./')
     ]
 
-    _ = training_v7.main(param)
+    _ = training_v7_biases.main(param)
     f_name = compute_file_name(pcov,pfc)
 
     # train pruned model
