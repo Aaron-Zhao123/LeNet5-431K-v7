@@ -11,8 +11,8 @@ def compute_file_name(pcov, pfc):
 
 acc_list = []
 count = 0
-pcov = [15., 30.]
-pfc = [99.5, 15.]
+pcov = [0., 0.]
+pfc = [99.2, 0.]
 
 retrain = 0
 lr = 1e-5
@@ -20,8 +20,8 @@ f_name = compute_file_name(pcov,pfc)
 
 while (count < 10):
     # pfc[0] = pfc[0] + 0.1
-    # pfc[1] = pfc[1] + 5.
-    # pcov[0] = pcov[0] + 5.
+    pfc[1] = 15.
+    pcov[0] = 15.
     pcov[1] = pcov[1] + 10.
     if (retrain == 0):
         lr = 1e-4
