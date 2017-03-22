@@ -17,9 +17,10 @@ pfc = [90., 0.]
 retrain = 0
 lr = 1e-4
 f_name = compute_file_name(pcov,pfc)
-pfc[1] = pfc[1] + 5.
-pcov[0] = pcov[0] + 10.
-pcov[1] = pcov[1] + 5.
+# pfc[1] = pfc[1] + 5.
+# pcov[0] = pcov[0] + 10.
+# pcov[1] = pcov[1] + 5.
+pfc[0] = pfc[0] + 1.
 while (count < 10):
     # pfc[0] = pfc[0] + 10.
     if (retrain == 0):
@@ -66,9 +67,10 @@ while (count < 10):
                 iter_cnt
             ))
     else:
-        pfc[1] = pfc[1] + 5.
-        pcov[0] = pcov[0] + 10.
-        pcov[1] = pcov[1] + 5.
+        pfc[0] = pfc[0] + 1.
+        # pfc[1] = pfc[1] + 5.
+        # pcov[0] = pcov[0] + 10.
+        # pcov[1] = pcov[1] + 5.
         acc_list.append('{},{},{}\n'.format(
             pcov + pfc,
             acc,
