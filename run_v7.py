@@ -15,7 +15,7 @@ pcov = [15., 30.]
 pfc = [99.5, 15.]
 
 retrain = 0
-lr = 1e-4
+lr = 1e-5
 f_name = compute_file_name(pcov,pfc)
 
 while (count < 10):
