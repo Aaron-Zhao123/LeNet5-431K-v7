@@ -69,8 +69,8 @@ while (count < 10):
     else:
         # pfc[0] = pfc[0] + 1.
         pfc[1] = pfc[1] + 5.
-        pcov[0] = pcov[0] + 10.
-        pcov[1] = pcov[1] + 5.
+        pcov[0] = pcov[0] + 5.
+        pcov[1] = pcov[1] + 10.
         acc_list.append('{},{},{}\n'.format(
             pcov + pfc,
             acc,
