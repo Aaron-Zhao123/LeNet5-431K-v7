@@ -12,15 +12,15 @@ def compute_file_name(pcov, pfc):
 acc_list = []
 count = 0
 pcov = [0., 0.]
-pfc = [98., 0.]
+pfc = [0., 0.]
 
 retrain = 0
 lr = 1e-4
 f_name = compute_file_name(pcov,pfc)
-pfc[1] = pfc[1] + 5.
-pcov[0] = pcov[0] + 5.
-pcov[1] = pcov[1] + 10.
-# pfc[0] = pfc[0] + 1.
+# pfc[1] = pfc[1] + 5.
+# pcov[0] = pcov[0] + 5.
+# pcov[1] = pcov[1] + 10.
+pfc[0] = pfc[0] + 1.
 while (count < 10):
     # pfc[0] = pfc[0] + 10.
     if (retrain == 0):
@@ -58,7 +58,7 @@ while (count < 10):
     if (acc < 0.9936):
         retrain += 1
         lr = lr / float(2)
-        if (retrain > 1 or pfc[1] > 90):
+        if (retrain > 3 ):
             print("lowest precision")
             # break
             acc_list.append('{},{},{}\n'.format(
@@ -66,21 +66,26 @@ while (count < 10):
                 acc,
                 iter_cnt
             ))
+            with open("biases_hist.txt","w") as f:
+                for item in acc_list:
+                    f.write(item)
+            pfc[0] = pfc[0] + 10.
     else:
-        # pfc[0] = pfc[0] + 1.
-        pfc[1] = pfc[1] + 5.
-        pcov[0] = pcov[0] + 5.
-        pcov[1] = pcov[1] + 10.
+        # pfc[1] = pfc[1] + 5.
+        # pcov[0] = pcov[0] + 5.
+        # pcov[1] = pcov[1] + 10.
         acc_list.append('{},{},{}\n'.format(
             pcov + pfc,
             acc,
             iter_cnt
         ))
+        with open("biases_hist.txt","w") as f:
+            for item in acc_list:
+                f.write(item)
+        pfc[0] = pfc[0] + 10.
         count = count + 1
         if (retrain != 0):
             retrain = 0
 
-with open("biases_hist.txt","w") as f:
-    for item in acc_list:
-        f.write(item)
+
 print('accuracy summary: {}'.format(acc_list))
