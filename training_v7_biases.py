@@ -371,7 +371,7 @@ def main(argv = None):
             mask_info(weights_mask)
             for key in keys:
                 sess.run(weights[key].assign(weights[key].eval()*weights_mask[key]))
-                # sess.run(biases[key].assign(biases[key].eval()*biases_mask[key]))
+                sess.run(biases[key].assign(biases[key].eval()*biases_mask[key]))
 
             prune_info(weights,1)
 
