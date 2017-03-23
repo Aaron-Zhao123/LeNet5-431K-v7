@@ -11,15 +11,15 @@ def compute_file_name(pcov, pfc):
 
 acc_list = []
 count = 0
-pcov = [0., 0.]
+pcov = [0., 80.]
 pfc = [98., 0.]
 
 retrain = 0
 lr = 1e-4
 f_name = compute_file_name(pcov,pfc)
-# pfc[1] = pfc[1] + 5.
-# pcov[0] = pcov[0] + 5.
-pcov[1] = pcov[1] + 10.
+pfc[1] = pfc[1] + 10.
+pcov[0] = pcov[0] + 10.
+# pcov[1] = pcov[1] + 10.
 # pfc[0] = pfc[0] + 1.
 while (count < 10):
     # pfc[0] = pfc[0] + 10.
@@ -69,8 +69,10 @@ while (count < 10):
             with open("biases_hist.txt","w") as f:
                 for item in acc_list:
                     f.write(item)
-            pcov[1] = pcov[1] + 10.
+            # pcov[1] = pcov[1] + 10.
             # pfc[0] = pfc[0] + 1.
+            pfc[1] = pfc[1] + 10.
+            pcov[0] = pcov[0] + 10.
     else:
         # pfc[1] = pfc[1] + 5.
         # pcov[0] = pcov[0] + 5.
@@ -83,8 +85,10 @@ while (count < 10):
         with open("biases_hist.txt","w") as f:
             for item in acc_list:
                 f.write(item)
-        pcov[1] = pcov[1] + 10.
+        # pcov[1] = pcov[1] + 10.
         # pfc[0] = pfc[0] + 1.
+        pfc[1] = pfc[1] + 10.
+        pcov[0] = pcov[0] + 10.
         count = count + 1
         if (retrain != 0):
             retrain = 0
