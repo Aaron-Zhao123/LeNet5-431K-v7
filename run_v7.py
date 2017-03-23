@@ -11,7 +11,7 @@ def compute_file_name(pcov, pfc):
 
 acc_list = []
 count = 0
-pcov = [0., 0.]
+pcov = [0., 80.]
 pfc = [99, 0.]
 
 retrain = 0
@@ -59,25 +59,25 @@ while (count < 10):
     if (acc < 0.9936):
         retrain += 1
         lr = lr / float(2)
-        if (retrain > 2 or pfc[1] > 90):
+        if (retrain > 3):
             print("lowest precision")
             acc_list.append('{},{},{}\n'.format(
                 pcov + pfc,
                 acc,
                 iter_cnt
             ))
-            # pfc[0] = pfc[0] + 0.1
+            pfc[0] = pfc[0] + 0.1
             # pfc[1] = pfc[1] + 5.
             # pcov[0] = pcov[0] + 5.
-            pcov[1] = pcov[1] + 10.
+            # pcov[1] = pcov[1] + 10.
     else:
         acc_list.append('{},{},{}\n'.format(
             pcov + pfc,
             acc,
             iter_cnt
         ))
-        # pfc[0] = pfc[0] + 0.1
-        pcov[1] = pcov[1] + 10.
+        pfc[0] = pfc[0] + 0.1
+        # pcov[1] = pcov[1] + 10.
         # pfc[1] = pfc[1] + 5.
         # pcov[0] = pcov[0] + 5.
         # pcov[1] = pcov[1] + 10.
