@@ -76,7 +76,8 @@ while (count < 10):
             acc,
             iter_cnt
         ))
-        pfc[0] = pfc[0] + 0.1
+        # pfc[0] = pfc[0] + 0.1
+        pcov[1] = pcov[1] + 10.
         # pfc[1] = pfc[1] + 5.
         # pcov[0] = pcov[0] + 5.
         # pcov[1] = pcov[1] + 10.
