@@ -417,6 +417,8 @@ def main(argv = None):
                                     x: mnist.test.images[:],
                                     y: mnist.test.labels[:],
                                     keep_prob: 1.})
+                            print(' pruning res is: ')
+                            print(pruning_cov, pruning_cov2, pruning_fc, pruning_fc2)
                             print('test accuracy is {}'.format(test_accuracy))
                             if (test_accuracy > 0.9936 or epoch > 200):
                                 file_name = parent_dir + 'weight/' + 'weight' + f_name + '.pkl'
