@@ -21,7 +21,7 @@ f_name = compute_file_name(pcov,pfc)
 # pcov[0] = pcov[0] + 10.
 # pcov[1] = pcov[1] + 10.
 pfc[0] = 90.
-pcov[1] = 10.
+# pcov[1] = 10.
 while (count < 10):
     # pfc[0] = pfc[0] + 0.1
     if (retrain == 0):
