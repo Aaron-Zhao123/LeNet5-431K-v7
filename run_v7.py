@@ -58,8 +58,7 @@ while (count < 10):
 
     if (acc < 0.9936):
         retrain += 1
-        lr = lr / float(2)
-        if (retrain > 3):
+        if (retrain >= 3):
             print("lowest precision")
             acc_list.append('{},{},{}\n'.format(
                 pcov + pfc,
